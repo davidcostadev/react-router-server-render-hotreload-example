@@ -1,78 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Switch, Route, Link } from 'react-router-dom';
-import { Container, Header, Menu, Segment } from 'semantic-ui-react';
+import { Switch, Route } from 'react-router-dom';
+import { Segment } from 'semantic-ui-react';
 
-import styles from './App.scss';
+import Homepage from './pages/Home';
+import About from './pages/About';
+import Login from './pages/Login';
 
-const TopMenu = (props) => {
-  const { activeItem } = props;
-  return (
-    <Menu fixed="top" pointing secondary>
-      <Menu.Item header>APP_TITLE</Menu.Item>
-      <Menu.Item name="Home" as={Link} to="/" active={activeItem === 'home'} />
-      <Menu.Item name="About" as={Link} to="/about" active={activeItem === 'about'} />
-      <Menu.Menu position="right">
-        <Menu.Item name="login" as={Link} to="/login" active={activeItem === 'login'} >
-          Login
-        </Menu.Item>
-      </Menu.Menu>
-    </Menu>
-  );
-};
-
-
-const Homepage = () => (
-  <div className={styles.mainContainer}>
-    <Helmet
-      title="Welcome"
-    />
-    <TopMenu activeItem="home" />
-    <Container>
-      <Header as="h2">
-        Home
-      </Header>
-      <p>
-        Welcome!
-      </p>
-    </Container>
-  </div>
-);
-
-const About = () => (
-  <div className={styles.mainContainer}>
-    <Helmet
-      title="About us"
-    />
-    <TopMenu activeItem="about" />
-    <Container>
-      <Header as="h2">
-        About
-      </Header>
-      <p>
-        Write to: <pre>github at malix.com</pre>
-      </p>
-    </Container>
-  </div>
-);
-
-const Login = () => (
-  <div className={styles.mainContainer}>
-    <Helmet
-      title="Login"
-    />
-    <TopMenu activeItem="login" />
-    <Container>
-      <Header as="h2">
-        Login
-      </Header>
-      <p>
-        [ Form ]
-      </p>
-    </Container>
-  </div>
-);
 
 const App = () => (
   <Segment padded="very" style={{ height: '100%' }}>
